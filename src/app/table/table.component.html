@@ -1,0 +1,12 @@
+<table *ngFor="let product of products">
+    <tr>
+        <th *ngFor="let attribute of product.attributes">
+            {{attribute}}
+        </th>
+    </tr>
+    <tr *ngFor="let data of product.datas">
+        <td *ngFor="let attribute of product.attributes">
+            {{data[attribute]}}
+        </td>
+    </tr>
+</table>
