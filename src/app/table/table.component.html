@@ -1,12 +1,12 @@
-<table *ngFor="let product of products">
+<table *ngFor="let product of products" class="text-sm text-white text-center w-full">
     <tr>
-        <th *ngFor="let attribute of product.attributes">
+        <th *ngFor="let attribute of product.attributes" class="bg-blue-500">
             {{attribute}}
         </th>
     </tr>
-    <tr *ngFor="let data of product.datas">
-        <td *ngFor="let attribute of product.attributes">
-            {{data[attribute]}}
+    <tr *ngFor="let dataRow of product.datas; odd as isOdd" class="{{isOdd ? 'bg-gray-400' : 'bg-gray-400' }}">
+        <td *ngFor="let data of dataRow;">
+            {{data}}
         </td>
     </tr>
 </table>

@@ -37,6 +37,8 @@
           },
           "configurations": {
             "production": {
+              "baseHref": "/pricelist/",
+              "deployUrl": "/pricelist/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -46,7 +48,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -126,6 +127,12 @@
             "production": {
               "devServerTarget": "pricelist:serve:production"
             }
+          }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "noBuild": true
           }
         }
       }

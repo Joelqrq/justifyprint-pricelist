@@ -1,5 +1,5 @@
-export interface Product {
+export interface IProduct {
     name: string;
     attributes: string[];
-    datas: any[];
+    datas: string[][];
 }

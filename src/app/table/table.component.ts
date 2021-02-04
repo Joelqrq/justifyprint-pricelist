@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../product';
+import { IProduct } from '../product';
 
 @Component({
   selector: 'jp-table',
@@ -8,12 +8,27 @@ import { Product } from '../product';
 })
 export class TableComponent implements OnInit {
 
-  products: Product[];
-
-  constructor() { }
-
-  ngOnInit(): void {
-    
+  private _products: IProduct[];
+  get products(): IProduct[] {
+    return this._products;
+  }
+  set products(values: IProduct[]) {
+    this._products = values;
   }
 
+  constructor() {
+    this.products = [ 
+      { "name": "Business Cards",
+       "attributes": ["Qty", "260gsm + Matte Lamination", "260gsm + Matte Lamination + SpotUV(S)"],
+       "datas": [ 
+        ["100", "26", "-"],
+        ["200", "29", "-"]
+      ]},
+
+    ];
+  }
+
+  ngOnInit(): void {
+
+  }
 }
