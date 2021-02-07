@@ -1,12 +1,15 @@
-<table *ngFor="let product of products" class="text-sm text-white text-center w-full">
-    <tr>
-        <th *ngFor="let attribute of product.attributes" class="bg-blue-500">
-            {{attribute}}
-        </th>
-    </tr>
-    <tr *ngFor="let dataRow of product.datas; odd as isOdd" class="{{isOdd ? 'bg-gray-400' : 'bg-gray-400' }}">
-        <td *ngFor="let data of dataRow;">
-            {{data}}
-        </td>
-    </tr>
-</table>
+<div *ngFor="let product of products$ | async">
+    <h1 class="p-4 uppercase lg:text-lg text-center">{{product.name}}</h1>
+    <table class="border-collapse w-full text-xs text-white text-center">
+        <tr class="bg-blue-600">
+            <th *ngFor="let attribute of product.attributes" class="p-2 font-semibold">
+                {{attribute}}
+            </th>
+        </tr>
+        <tr *ngFor="let dataRow of product.datas; even as isEven" class="{{ isEven ? 'bg-gray-400' : 'bg-gray-700' }}">
+            <td *ngFor="let data of dataRow;" class="p-2 border font-medium text-xs border-black">
+                {{data}}
+            </td>
+        </tr>
+    </table>
+</div>

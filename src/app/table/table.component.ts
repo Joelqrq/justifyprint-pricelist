@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { combineLatest } from 'rxjs';
 import { IProduct } from '../product';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'jp-table',
@@ -16,19 +18,9 @@ export class TableComponent implements OnInit {
     this._products = values;
   }
 
-  constructor() {
-    this.products = [ 
-      { "name": "Business Cards",
-       "attributes": ["Qty", "260gsm + Matte Lamination", "260gsm + Matte Lamination + SpotUV(S)"],
-       "datas": [ 
-        ["100", "26", "-"],
-        ["200", "29", "-"]
-      ]},
+  products$ = combineLatest([this.productService.getProducts('/assets/api/businessCard/BusinessCard.csv'), this.productService.getProducts('/assets/api/businessCard/Finishing.csv')]);
 
-    ];
-  }
+  constructor(private productService: ProductService) { }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void { }
 }

@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { TableComponent } from './table/table.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', component: TableComponent },
+  { path: '**', redirectTo: '' }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
