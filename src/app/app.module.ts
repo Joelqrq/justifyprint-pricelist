@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { TableComponent } from './table/table.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BusinessCardComponent } from './business-card/business-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    TableComponent
+    TableComponent,
+    BusinessCardComponent
   ],
   imports: [
     BrowserModule,

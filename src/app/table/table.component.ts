@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { combineLatest } from 'rxjs';
+import { Component, Input, OnInit } from '@angular/core';
+import { combineLatest, Observable } from 'rxjs';
 import { IProduct } from '../product';
 import { ProductService } from '../product.service';
 
@@ -18,9 +18,13 @@ export class TableComponent implements OnInit {
     this._products = values;
   }
 
-  products$ = combineLatest([this.productService.getProducts('/assets/api/businessCard/BusinessCard.csv'), this.productService.getProducts('/assets/api/businessCard/Finishing.csv')]);
+  @Input() productUrls: string[];
 
+  products$: Observable<IProduct[]>;
+  
   constructor(private productService: ProductService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.products$ = combineLatest(this.productService.getProducts(this.productUrls)); 
+  }
 }

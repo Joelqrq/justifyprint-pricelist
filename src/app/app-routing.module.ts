@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { TableComponent } from './table/table.component';
+import { BusinessCardComponent } from './business-card/business-card.component';
 
 const routes: Routes = [
-  { path: '', component: TableComponent },
+  { path: '', component: BusinessCardComponent },
   { path: '**', redirectTo: '' }
 ];
 

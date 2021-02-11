@@ -1,15 +1,28 @@
-<div *ngFor="let product of products$ | async">
-    <h1 class="p-4 uppercase lg:text-lg text-center">{{product.name}}</h1>
-    <table class="border-collapse w-full text-xs text-white text-center">
-        <tr class="bg-blue-600">
-            <th *ngFor="let attribute of product.attributes" class="p-2 font-semibold">
-                {{attribute}}
-            </th>
-        </tr>
-        <tr *ngFor="let dataRow of product.datas; even as isEven" class="{{ isEven ? 'bg-gray-400' : 'bg-gray-700' }}">
-            <td *ngFor="let data of dataRow;" class="p-2 border font-medium text-xs border-black">
-                {{data}}
-            </td>
-        </tr>
-    </table>
+<div *ngIf="products$" class="mt-4 flex flex-col items-center space-y-4">
+    <div *ngFor="let product of products$ | async" class="w-4/5 h-96 overflow-auto">
+        <table class="w-full h-full table-fixed">
+            <caption class="px-3 pt-6 pb-2 uppercase text-lg text-left">
+                {{product.name}}
+                <span class="text-xs normal-case">(Price displayed are in SGD.)</span>
+            </caption>
+            <thead>
+                <tr class="text-xs text-white text-center">
+                    <th *ngFor="let attribute of product.attributes"
+                        class="px-4 py-2 w-24 max-w-lg sticky top-0 font-semibold bg-blue-600">
+                        {{attribute}}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let dataRow of product.datas; even as isEven"
+                    [ngClass]="{ 'bg-white': isEven, 'bg-yellow-200': !isEven }" class="text-xs text-black text-center">
+                    <td *ngFor="let data of dataRow; last as isLast"
+                        [ngClass]="{'border-t-0 border-l-0 border-r-0': isLast, 'border-t-0 border-l-0': !isLast}"
+                        class="p-2 border font-medium text-xs border-black">
+                        {{data}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
