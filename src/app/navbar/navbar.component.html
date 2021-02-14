@@ -1,9 +1,31 @@
-<nav>
-    <ul class="flex flex-row space-x-2">
-        <li class="-mb-px mr-2 last:mr-0 flex-auto text-center">
-            <a routerLink="" class="text-xs font-bold uppercase px-5 py-3 shadow-lg rounded block leading-normal">
-                Business Card
-            </a>
-        </li>
-    </ul>
+<nav class="mb-2 pl-8 pr-4 py-4 flex flex-row flex-wrap items-center shadow-lg">
+    <div class="w-full relative flex justify-between items-center lg:w-auto px-4 lg:static lg:block lg:justify-start">
+        <h1 class="text-lg">JustifyPrint</h1>
+        <button (click)="toggleNavbar()" [ngClass]="{'text-blue-500': !showMenu, 'text-blue-300': showMenu}"
+            class="cursor-pointer text-2xl leading-none px-3 py-1 block lg:hidden border border-solid border-transparent rounded bg-transparent outline-none focus:outline-none"
+            type="button">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+    <div [ngClass]="{'hidden': !showMenu, 'flex': showMenu}" class="p-4 lg:py-0 lg:pl-0 lg:flex lg:flex-grow w-full lg:w-auto justify-end items-center">
+        <ul class="flex flex-col lg:flex-row w-full lg:w-auto list-none text-sm text-right">
+            <li routerLinkActive="shadow-inner text-blue-300" [routerLinkActiveOptions]="{exact: true}" class="p-3 -mb-px mr-2 last:mr-0 font-medium">
+                <a routerLink="" class="">
+                    Business Card
+                </a>
+            </li>
+            <li routerLinkActive="shadow-inner text-blue-300" [routerLinkActiveOptions]="{exact: true}" class="p-3 -mb-px mr-2 last:mr-0 font-medium">
+                <a routerLink="flyerbrochure">
+                    Flyer & Brochure
+                </a>
+            </li>
+            <li routerLinkActive="shadow-inner text-blue-300" [routerLinkActiveOptions]="{exact: true}" class="p-3 -mb-px mr-2 last:mr-0 font-medium">
+                <a routerLink="envelope">
+                    Envelope
+                </a>
+            </li>
+            <li class="mr-2 last:mr-0">
+            </li>
+        </ul>
+    </div>
 </nav>

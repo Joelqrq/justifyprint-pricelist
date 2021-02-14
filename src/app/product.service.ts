@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { IProduct } from './product';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map,combineLatest } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,15 +12,7 @@ export class ProductService {
   constructor(private http: HttpClient) {
   }
 
-  getProductNames(): Observable<string[]> {
-    return this.http.get("./assets/api/productNames.txt", { responseType: "text" })
-      .pipe(
-        map((content: string) => content.split(",").map(name => name.trim()))
-      );
-  }
-
   getProducts(productUrls: string[]): Observable<IProduct>[] {
-
     return productUrls.map(productUrl => {
       return this.http.get(productUrl, { responseType: "text" })
       .pipe(
