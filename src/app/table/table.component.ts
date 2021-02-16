@@ -11,21 +11,10 @@ import { ProductService } from '../product.service';
 })
 export class TableComponent implements OnInit {
 
-  private _products: IProduct[];
-  get products(): IProduct[] {
-    return this._products;
-  }
-  set products(values: IProduct[]) {
-    this._products = values;
-  }
-
-  @Input() productUrls: string[];
-
-  products$: Observable<IProduct[]>;
+  @Input() products$: Observable<IProduct[]>;
   
-  constructor(private productService: ProductService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.products$ = combineLatest(this.productService.getProducts(this.productUrls)); 
   }
 }

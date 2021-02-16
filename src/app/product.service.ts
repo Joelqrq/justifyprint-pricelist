@@ -14,7 +14,9 @@ export class ProductService {
 
   getProducts(productUrls: string[]): Observable<IProduct>[] {
     return productUrls.map(productUrl => {
-      return this.http.get(productUrl, { responseType: "text" })
+      productUrl = "https://joelqrq.github.io/justifyprint-pricelist" + productUrl;
+      console.log(productUrl);
+      return this.http.get(productUrl, { responseType: "text"})
       .pipe(
         map((content: string) => {
           const splitDatas: string[][] = content.split("\n").map((row: string) => row.split(","));

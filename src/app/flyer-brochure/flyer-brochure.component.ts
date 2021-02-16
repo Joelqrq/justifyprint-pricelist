@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { combineLatest } from 'rxjs';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'jp-flyer-brochure',
@@ -8,9 +10,12 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 })
 export class FlyerBrochureComponent implements OnInit {
 
-  constructor() { }
+  productUrls: string[] = ["/business-card-tables/business-card.csv", "/business-card-tables/finishing.csv"];
+  
+  products$ = combineLatest(this.productService.getProducts(this.productUrls)); 
 
-  ngOnInit(): void {
-  }
+  constructor(private productService: ProductService) { }
+
+  ngOnInit(): void { }
 
 }

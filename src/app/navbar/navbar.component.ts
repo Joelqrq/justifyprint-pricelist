@@ -9,7 +9,7 @@ import { ProductService } from '../product.service';
 })
 export class NavbarComponent implements OnInit {
 
-  showMenu = true;
+  showMenu = false;
 
   toggleNavbar(){
     this.showMenu = !this.showMenu;
