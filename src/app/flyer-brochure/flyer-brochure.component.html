@@ -6,24 +6,23 @@
         You can check out the custom details below.<br>
         For instant custom quotation email to justifyprint@gmail.com
     </p>
-    <button
-        class="px-6 py-2 mt-3 mb-6 text-sm lg:text-base text-white font-semibold bg-blue-800 shadow-md outline-none focus:outline-none">
+    <a class="px-6 py-2 mt-3 mb-6 text-sm lg:text-base text-white font-semibold bg-blue-800 shadow-md outline-none focus:outline-none">
         Custom Details
-    </button>
+    </a>
     <div class="container relative flex flex-col items-center">
         <jp-table [products$]=products$></jp-table>
-        <h2 class="mt-12 mb-8 text-2xl uppercase">Custom Details</h2>
+        <h2 id="#custom-details" class="mt-12 mb-8 text-2xl uppercase">Custom Details</h2>
         <div *ngFor="let details of details$ | async;" class="container flex flex-col lg:flex-row">
             <div *ngFor="let detail of details"
-                class="w-full p-6 flex flex-col self-start border border-solid border-blue-400 shadow-md">
-                <div *ngFor="let title of detail.titles; index as i">
-                    <h3 class="mb-4 text-base lg:text-lg font-semibold">
+                class="w-full m-2 p-6 flex flex-col self-start border border-solid border-blue-400 shadow-md">
+                <div *ngFor="let title of detail.titles; index as i" class="mt-6 first:mt-0 flex flex-col space-y-4">
+                    <h3 class="text-lg lg:text-xl font-semibold">
                         {{title}}
                     </h3>
-                    <ul>
+                    <ul class="list-none">
                         <li *ngFor="let item of detail.items[i]">
                             <i [ngClass]="item.icon"></i>
-                            {{item.text}}
+                            <span>{{item.text}}</span>
                         </li>
                     </ul>
                 </div>

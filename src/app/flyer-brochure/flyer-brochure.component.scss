@@ -3,5 +3,10 @@
 }
 
 li {
-    @apply mb-2 last:mb-0 text-sm lg:text-base list-none;
+    @apply mb-2 last:mb-0 flex flex-row items-start text-sm font-normal tracking-wide leading-relaxed;
+    white-space: pre-line;
+}
+
+li svg {
+    @apply mr-2 mt-0.5 lg:mt-1;
 }
