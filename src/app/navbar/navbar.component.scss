@@ -1,0 +1,7 @@
+li {
+    @apply p-3 -mb-px mr-2;
+}
+
+li > a {
+    @apply text-sm font-medium;
+}

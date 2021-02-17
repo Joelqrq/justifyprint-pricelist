@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { combineLatest } from 'rxjs';
 import { ProductService } from '../product.service';
 
 @Component({
@@ -10,12 +9,21 @@ import { ProductService } from '../product.service';
 })
 export class FlyerBrochureComponent implements OnInit {
 
-  productUrls: string[] = ["/business-card-tables/business-card.csv", "/business-card-tables/finishing.csv"];
-  
-  products$ = combineLatest(this.productService.getProducts(this.productUrls)); 
+  productUrls: string[] = [
+    "/flyer-brochure-tables/A4.csv",
+    "/flyer-brochure-tables/3xA4.csv",
+    "/flyer-brochure-tables/4xA4.csv",
+    "/flyer-brochure-tables/A3.csv",
+    "/flyer-brochure-tables/A5.csv",
+    "/flyer-brochure-tables/A6.csv"
+  ];
+
+  products$ = this.productService.getProducts(this.productUrls);
+
+  details$ = this.productService.getDetailsFiles(["/flyer-brochure-tables/custom.json"])
 
   constructor(private productService: ProductService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {  }
 
 }

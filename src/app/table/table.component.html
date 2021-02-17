@@ -1,6 +1,6 @@
-<div *ngIf="products$" class="mt-4 flex flex-col items-center space-y-4">
-    <div *ngFor="let product of products$ | async" class="w-4/5 h-96 overflow-auto">
-        <table class="w-full h-full table-fixed">
+<div *ngIf="products$" class="container mt-4 flex flex-col items-center space-y-4">
+    <div *ngFor="let product of products$ | async" class="relative w-4/5 h-96 overflow-auto">
+        <table class="table-fixed w-full">
             <caption class="px-3 pt-6 pb-2 uppercase text-lg text-left">
                 {{product.name}}
                 <span class="text-xs normal-case">(Price displayed are in SGD.)</span>

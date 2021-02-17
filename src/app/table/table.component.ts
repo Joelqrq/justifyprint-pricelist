@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { combineLatest, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { IProduct } from '../product';
-import { ProductService } from '../product.service';
 
 @Component({
   selector: 'jp-table',
@@ -11,10 +10,9 @@ import { ProductService } from '../product.service';
 })
 export class TableComponent implements OnInit {
 
-  @Input() products$: Observable<IProduct[]>;
+  @Input() products$: Observable<IProduct[]>  = new Observable<IProduct[]>();
   
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 }

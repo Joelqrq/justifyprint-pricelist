@@ -1,3 +1,7 @@
 .flyer {
     background-image: url('/assets/images/flyer brochure.png');
 }
+
+li {
+    @apply mb-2 last:mb-0 text-sm lg:text-base list-none;
+}

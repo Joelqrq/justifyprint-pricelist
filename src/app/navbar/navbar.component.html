@@ -8,23 +8,21 @@
         </button>
     </div>
     <div [ngClass]="{'hidden': !showMenu, 'flex': showMenu}" class="p-4 lg:py-0 lg:pl-0 lg:flex lg:flex-grow w-full lg:w-auto justify-end items-center">
-        <ul class="flex flex-col lg:flex-row w-full lg:w-auto list-none text-sm text-right">
-            <li routerLinkActive="shadow-inner text-blue-300" [routerLinkActiveOptions]="{exact: true}" class="p-3 -mb-px mr-2 last:mr-0 font-medium">
-                <a routerLink="businesscard" class="">
+        <ul class="flex flex-col lg:flex-row w-full lg:w-auto list-none text-right">
+            <li routerLinkActive="shadow-inner text-blue-300" [routerLinkActiveOptions]="{exact: true}">
+                <a routerLink="businesscard">
                     Business Card
                 </a>
             </li>
-            <li routerLinkActive="shadow-inner text-blue-300" [routerLinkActiveOptions]="{exact: true}" class="p-3 -mb-px mr-2 last:mr-0 font-medium">
+            <li routerLinkActive="shadow-inner text-blue-300" [routerLinkActiveOptions]="{exact: true}">
                 <a routerLink="flyerbrochure">
                     Flyer & Brochure
                 </a>
             </li>
-            <li routerLinkActive="shadow-inner text-blue-300" [routerLinkActiveOptions]="{exact: true}" class="p-3 -mb-px mr-2 last:mr-0 font-medium">
+            <li routerLinkActive="shadow-inner text-blue-300" [routerLinkActiveOptions]="{exact: true}">
                 <a routerLink="envelope">
                     Envelope
                 </a>
-            </li>
-            <li class="mr-2 last:mr-0">
             </li>
         </ul>
     </div>
