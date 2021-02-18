@@ -1,0 +1,10 @@
+<nav *ngIf="variants$">
+    <ul class="flex flex-row justify-between">
+        <li *ngFor="let variant of variants$ | async" class="px-3 py-2 mr-3 last:mr-0 flex-1 bg-blue-800 shadow-md">
+            <a [routerLink]="pageUrl" [fragment]="variant.name" 
+            class="text-sm lg:text-base text-white font-semibold outline-none focus:outline-none">
+                {{variant.name}}
+            </a>
+        </li>
+    </ul>
+</nav>

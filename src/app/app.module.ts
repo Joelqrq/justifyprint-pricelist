@@ -9,6 +9,8 @@ import { SharedModule } from './shared/shared.module';
 import { BusinessCardComponent } from './business-card/business-card.component';
 import { FlyerBrochureComponent } from './flyer-brochure/flyer-brochure.component';
 import { TableComponent } from './table/table.component';
+import { EnvelopeComponent } from './envelope/envelope.component';
+import { CategoryTabComponent } from './category-tab/category-tab.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { TableComponent } from './table/table.component';
     NavbarComponent,
     TableComponent,
     BusinessCardComponent,
-    FlyerBrochureComponent
+    FlyerBrochureComponent,
+    EnvelopeComponent,
+    CategoryTabComponent
   ],
   imports: [
     BrowserModule,

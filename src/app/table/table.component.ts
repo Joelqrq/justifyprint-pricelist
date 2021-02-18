@@ -10,7 +10,7 @@ import { IProduct } from '../product';
 })
 export class TableComponent implements OnInit {
 
-  @Input() products$: Observable<IProduct[]>  = new Observable<IProduct[]>();
+  @Input() variants$: Observable<IProduct[]> = new Observable<IProduct[]>();
   
   constructor() { }
 

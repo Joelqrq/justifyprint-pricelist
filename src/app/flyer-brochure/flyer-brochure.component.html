@@ -1,20 +1,24 @@
 <div class="pt-12 px-6 pb-6 flex flex-col items-center">
     <h1 class="my-3 text-3xl lg:text-4xl font-bold text-center">Flyer / Brochure Price List</h1>
     <hr class="w-5/6 2xl:w-3/4 border border-blue-300 self-center">
-    <img class="flyer mt-6 mb-3 w-full h-96 bg-contain bg-no-repeat bg-top" />
-    <p class="text-sm lg:text-base font-medium text-center">
-        You can check out the custom details below.<br>
-        For instant custom quotation email to justifyprint@gmail.com
-    </p>
-    <a class="px-6 py-2 mt-3 mb-6 text-sm lg:text-base text-white font-semibold bg-blue-800 shadow-md outline-none focus:outline-none">
-        Custom Details
-    </a>
-    <div class="container relative flex flex-col items-center">
-        <jp-table [products$]=products$></jp-table>
-        <h2 id="#custom-details" class="mt-12 mb-8 text-2xl uppercase">Custom Details</h2>
-        <div *ngFor="let details of details$ | async;" class="container flex flex-col lg:flex-row">
+    <section class="mb-12 container flex flex-col items-center">
+        <img [src]="imageUrl" class="mt-6 relative lg:w-3/5" alt="brochure"/>
+        <p class="mb-3 text-sm lg:text-base font-medium text-center">
+            You can check out the custom details below.<br>
+            For instant custom quotation email to justifyprint@gmail.com
+        </p>
+        <button routerLink="/flyer-brochure" fragment="custom-details"
+            class="px-6 py-2 mt-3 text-sm lg:text-base text-white font-semibold bg-blue-800 shadow-md outline-none focus:outline-none">
+            Custom Details
+        </button>
+    </section>
+    <section class="container relative flex flex-col items-center">
+        <jp-category-tab pageUrl="/flyer-brochure" [variants$]=variants$></jp-category-tab>
+        <jp-table [variants$]=variants$></jp-table>
+        <h2 id="custom-details" class="mt-12 mb-8 text-2xl uppercase">Custom Details</h2>
+        <div *ngFor="let details of details$ | async;" class="flex flex-col lg:flex-row">
             <div *ngFor="let detail of details"
-                class="w-full m-2 p-6 flex flex-col self-start border border-solid border-blue-400 shadow-md">
+                class="m-2 p-6 w-full flex flex-col self-start border border-solid border-blue-400 shadow-md">
                 <div *ngFor="let title of detail.titles; index as i" class="mt-6 first:mt-0 flex flex-col space-y-4">
                     <h3 class="text-lg lg:text-xl font-semibold">
                         {{title}}
@@ -31,5 +35,5 @@
 
             </div>
         </div>
-    </div>
+    </section>
 </div>

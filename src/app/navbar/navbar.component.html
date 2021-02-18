@@ -1,6 +1,6 @@
 <nav class="mb-2 pl-8 pr-4 py-4 flex flex-row flex-wrap items-center shadow-lg">
     <div class="w-full relative flex justify-between items-center lg:w-auto px-4 lg:static lg:block lg:justify-start">
-        <h1 class="text-lg">JustifyPrint</h1>
+        <img [src]="logo" class="h-12 text-lg" alt="JustifyPrint"/>
         <button (click)="toggleNavbar()" [ngClass]="{'text-blue-500': !showMenu, 'text-blue-300': showMenu}"
             class="cursor-pointer text-2xl leading-none px-3 py-1 block lg:hidden border border-solid border-transparent rounded bg-transparent outline-none focus:outline-none"
             type="button">
@@ -8,14 +8,14 @@
         </button>
     </div>
     <div [ngClass]="{'hidden': !showMenu, 'flex': showMenu}" class="p-4 lg:py-0 lg:pl-0 lg:flex lg:flex-grow w-full lg:w-auto justify-end items-center">
-        <ul class="flex flex-col lg:flex-row w-full lg:w-auto list-none text-right">
+        <ul class="flex flex-col lg:flex-row w-full lg:w-auto list-none text-right lg:text-center">
             <li routerLinkActive="shadow-inner text-blue-300" [routerLinkActiveOptions]="{exact: true}">
                 <a routerLink="businesscard">
                     Business Card
                 </a>
             </li>
             <li routerLinkActive="shadow-inner text-blue-300" [routerLinkActiveOptions]="{exact: true}">
-                <a routerLink="flyerbrochure">
+                <a routerLink="flyer-brochure">
                     Flyer & Brochure
                 </a>
             </li>

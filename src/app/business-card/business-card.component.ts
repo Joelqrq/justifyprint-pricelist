@@ -14,7 +14,7 @@ export class BusinessCardComponent implements OnInit {
     "/business-card-tables/finishing.csv"
   ];
 
-  products$ = this.productService.getProducts(this.productUrls);
+  variants$ = this.productService.getVariants(this.productUrls);
 
   constructor(private productService: ProductService) { }
 

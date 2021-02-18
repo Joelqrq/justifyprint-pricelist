@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { ProductService } from '../product.service';
+import { SafeUrl } from '@angular/platform-browser';
+import { AssetService } from '../asset.service';
 
 @Component({
   selector: 'jp-navbar',
@@ -9,15 +10,18 @@ import { ProductService } from '../product.service';
 })
 export class NavbarComponent implements OnInit {
 
+  logo: SafeUrl;
+
   showMenu = false;
 
   toggleNavbar(){
     this.showMenu = !this.showMenu;
   }
 
-  constructor(private productService: ProductService) { }
+  constructor(private assetService: AssetService) { 
+    this.logo = this.assetService.getFile("/logo/justifyprint.png");
+  }
 
   ngOnInit(): void {
   }
-
 }
