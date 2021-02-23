@@ -1,8 +1,11 @@
 <nav *ngIf="variants$">
-    <ul class="flex flex-row justify-between">
-        <li *ngFor="let variant of variants$ | async" class="px-3 py-2 mr-3 last:mr-0 flex-1 bg-blue-800 shadow-md">
+    <button class="" #btnDropdown (click)="toggleDropdown()" type="button">
+        ---
+    </button>
+    <ul class="flex flex-row flex-wrap justify-start lg:justify-center">
+        <li *ngFor="let variant of variants$ | async" class="mb-3 mr-3 last:mr-0 bg-blue-800 shadow-md flex-auto flex-grow-0">
             <a [routerLink]="pageUrl" [fragment]="variant.name" 
-            class="text-sm lg:text-base text-white font-semibold outline-none focus:outline-none">
+            class="block px-6 py-2 mx-3 text-sm lg:text-base text-white font-semibold outline-none focus:outline-none">
                 {{variant.name}}
             </a>
         </li>
