@@ -1,9 +1,9 @@
-export interface IDetails {
+export interface Details {
     titles: string[];
-    items: IItem[][];
+    items: Item[][];
 }
 
-export interface IItem{
+export interface Item{
     icon: string;
     text: string;
 }

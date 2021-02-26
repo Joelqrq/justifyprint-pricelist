@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { SafeUrl } from '@angular/platform-browser';
+import { Observable } from 'rxjs';
 import { AssetService } from '../asset.service';
+import { Product } from '../product';
 import { ProductService } from '../product.service';
 
 @Component({
@@ -13,20 +15,14 @@ export class FlyerBrochureComponent implements OnInit {
 
   imageUrl: SafeUrl;
 
-  productUrls: string[] = [
-    "/flyer-brochure-tables/A4.csv",
-    "/flyer-brochure-tables/3xA4.csv",
-    "/flyer-brochure-tables/4xA4.csv",
-    "/flyer-brochure-tables/A3.csv",
-    "/flyer-brochure-tables/A5.csv",
-    "/flyer-brochure-tables/A6.csv"
-  ];
+  readonly productIdentifier: string = "flyer-brochure";
 
-  variants$ = this.productService.getVariants(this.productUrls);
-
-  details$ = this.productService.getDetailsFiles(["/flyer-brochure-tables/custom.json"])
-
+  public readonly variants$: Observable<Product[]>;
+  
+  public readonly details$ = this.productService.getDetailsFiles("flyer-brochure");
+  
   constructor(private productService: ProductService, private assetService: AssetService) {
+    this.variants$ = this.productService.getVariants(this.productIdentifier);
     this.imageUrl = this.assetService.getFile("/flyer-brochure-tables/Loose-Sheet-Folding-01.jpg");
   }
 

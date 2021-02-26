@@ -1,18 +1,27 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IProduct } from '../product';
+import { Product } from '../product';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'jp-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
+  host: { 'class': 'w-full'},
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TableComponent implements OnInit {
 
-  @Input() variants$: Observable<IProduct[]> = new Observable<IProduct[]>();
+  @Input() public readonly identifier: string | undefined;
+  public variants$: Observable<Product[]> | undefined;
   
-  constructor() { }
+  constructor(private readonly productService: ProductService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    if(this.identifier == undefined)
+    {
+      throw new Error("Table identifier is not available!");
+    }
+    this.variants$ = this.productService.getVariants(this.identifier);
+  }
 }

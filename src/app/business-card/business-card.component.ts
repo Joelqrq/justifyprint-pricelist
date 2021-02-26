@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Product } from '../product';
 import { ProductService } from '../product.service';
 
 @Component({
@@ -9,14 +11,12 @@ import { ProductService } from '../product.service';
 })
 export class BusinessCardComponent implements OnInit {
 
-  productUrls: string[] = [
-    "/business-card-tables/business-card.csv",
-    "/business-card-tables/finishing.csv"
-  ];
+  readonly productIdentifier: string = "business-card";
+  public readonly variants$: Observable<Product[]>;
 
-  variants$ = this.productService.getVariants(this.productUrls);
-
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService) {
+    this.variants$ = this.productService.getVariants(this.productIdentifier);
+  }
 
   ngOnInit(): void { }
 }

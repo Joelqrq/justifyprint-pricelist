@@ -10,7 +10,7 @@ import { BusinessCardComponent } from './business-card/business-card.component';
 import { FlyerBrochureComponent } from './flyer-brochure/flyer-brochure.component';
 import { TableComponent } from './table/table.component';
 import { EnvelopeComponent } from './envelope/envelope.component';
-import { CategoryTabComponent } from './category-tab/category-tab.component';
+import { VariantDropdownComponent } from './variant-dropdown/variant-dropdown.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { CategoryTabComponent } from './category-tab/category-tab.component';
     BusinessCardComponent,
     FlyerBrochureComponent,
     EnvelopeComponent,
-    CategoryTabComponent
+    VariantDropdownComponent
   ],
   imports: [
     BrowserModule,

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CategoryTabComponent } from './category-tab.component';
+import { VariantDropdownComponent } from './variant-dropdown.component';
 
-describe('CategoryTabComponent', () => {
-  let component: CategoryTabComponent;
-  let fixture: ComponentFixture<CategoryTabComponent>;
+describe('VariantDropdownComponent', () => {
+  let component: VariantDropdownComponent;
+  let fixture: ComponentFixture<VariantDropdownComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CategoryTabComponent ]
+      declarations: [ VariantDropdownComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CategoryTabComponent);
+    fixture = TestBed.createComponent(VariantDropdownComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
