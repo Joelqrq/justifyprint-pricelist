@@ -1,15 +1,15 @@
-<div *ngIf="variants$" class="mt-3 mb-8 flex flex-col items-center">
-    <div *ngFor="let variant of variants$ | async; last as isLast" [ngClass]="{'mb-20': !isLast, 'mb-0': isLast }" class="w-full h-96">
-        <div class="relative flex flex-row items-baseline">
-            <h1 [id]="variant.name" class="pr-2 pt-6 pb-2 uppercase text-lg text-left">{{variant.name}}</h1>
-            <span class="text-xs normal-case">(Price displayed are in SGD.)</span>
+<div *ngIf="variants$" class="my-3 flex flex-col items-center">
+    <div *ngFor="let variant of variants$ | async; last as isLast" [ngClass]="isLast ? 'mb-0' : 'mb-6'" class="relative w-full">
+        <div class="relative inline-flex flex-row items-baseline">
+            <h1 [id]="variant.name" class="pr-2 pt-6 pb-2 uppercase text-lg text-left select-none">{{variant.name}}</h1>
+            <span class="text-xs normal-case select-none">(Price displayed are in SGD.)</span>
         </div>
-        <div class="w-full h-96 overflow-auto shadow-md">
+        <div class="relative w-full h-96 overflow-auto shadow-md">
             <table class="table-fixed w-full h-full border-collapse">
                 <thead>
                     <tr>
                         <th *ngFor="let attribute of variant.attributes"
-                            class="px-4 py-2 w-24 max-w-lg sticky top-0 text-xs text-white text-center font-semibold bg-blue-600">
+                            class="px-4 py-2 w-24 max-w-lg sticky top-0 text-xs text-white text-center font-semibold bg-blue-600 select-none">
                             {{attribute}}
                         </th>
                     </tr>
@@ -19,7 +19,7 @@
                         [ngClass]="{ 'bg-white': isEven, 'bg-yellow-200': !isEven }">
                         <td *ngFor="let data of dataRow; last as isLast"
                             [ngClass]="{'border-l-0 border-r-0': isLast, 'border-l-0': !isLast, 'border-b-0': rowLast }"
-                            class="p-2 border font-medium text-xs text-gray-700 text-center border-gray-500">
+                            class="p-2 border font-medium text-xs text-gray-700 text-center border-gray-500 select-none">
                             {{data}}
                         </td>
                     </tr>

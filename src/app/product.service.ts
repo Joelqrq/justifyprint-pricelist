@@ -22,12 +22,14 @@ export class ProductService {
     {
       identifier: "flyer-brochure",
       urls: [
-        "https://joelqrq.github.io/justifyprint-pricelist/flyer-brochure-tables/A4.csv",
-        "https://joelqrq.github.io/justifyprint-pricelist/flyer-brochure-tables/3xA4.csv",
-        "https://joelqrq.github.io/justifyprint-pricelist/flyer-brochure-tables/4xA4.csv",
         "https://joelqrq.github.io/justifyprint-pricelist/flyer-brochure-tables/A3.csv",
+        "https://joelqrq.github.io/justifyprint-pricelist/flyer-brochure-tables/A4.csv",
         "https://joelqrq.github.io/justifyprint-pricelist/flyer-brochure-tables/A5.csv",
-        "https://joelqrq.github.io/justifyprint-pricelist/flyer-brochure-tables/A6.csv"]
+        "https://joelqrq.github.io/justifyprint-pricelist/flyer-brochure-tables/A6.csv",
+        "https://joelqrq.github.io/justifyprint-pricelist/flyer-brochure-tables/DL.csv",
+        "https://joelqrq.github.io/justifyprint-pricelist/flyer-brochure-tables/3xA4.csv",
+        "https://joelqrq.github.io/justifyprint-pricelist/flyer-brochure-tables/4xA4.csv"
+      ]
     }
   ];
 
