@@ -10,15 +10,15 @@ import { AssetService } from '../asset.service';
 })
 export class NavbarComponent implements OnInit {
 
-  logo: SafeUrl;
+  public readonly logo: SafeUrl;
 
-  showMenu = false;
+  public showMenu = false;
 
   toggleNavbar(){
     this.showMenu = !this.showMenu;
   }
 
-  constructor(private assetService: AssetService) { 
+  constructor(private readonly assetService: AssetService) { 
     this.logo = this.assetService.getFile("/logo/justifyprint.png");
   }
 

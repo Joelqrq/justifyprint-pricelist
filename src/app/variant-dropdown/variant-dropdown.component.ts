@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { createPopper, Instance } from '@popperjs/core';
-import { Observable } from 'rxjs';
+import { ChangeDetectionStrategy, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { createPopper, Instance, VirtualElement } from '@popperjs/core';
+import { Observable, Subscription } from 'rxjs';
 import { Product } from '../product';
 import { ProductService } from '../product.service';
 import { ActivatedRoute, UrlSegment } from '@angular/router';
@@ -13,13 +13,14 @@ import { take } from 'rxjs/operators';
   host: { 'class': 'z-dropdown' },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class VariantDropdownComponent implements OnInit {
+export class VariantDropdownComponent implements OnInit, OnDestroy {
 
-  @ViewChild('dropdownBtn', { static: false, read: ElementRef }) dropdownBtnRef: ElementRef | undefined;
+  @ViewChild('dropdownBtn', { static: false, read: ElementRef }) dropdownBtnRef: ElementRef<VirtualElement> | ElementRef | undefined;
   @ViewChild('dropdownPopper', { static: false, read: ElementRef }) popperRef: ElementRef | undefined;
   @Input() public readonly identifier: string | undefined;
   public readonly url$: Observable<UrlSegment[]> | undefined;
-  public variants$: Observable<Product[]> | undefined;
+  public variants: Product[] | undefined;
+  private variantsSub: Subscription | undefined;
   private popper: Instance | undefined;
   public isShow: boolean = false;
 
@@ -35,6 +36,7 @@ export class VariantDropdownComponent implements OnInit {
 
   destroyPopper() {
     this.popperRef?.nativeElement.parentNode?.removeChild(this.popperRef?.nativeElement);
+    this.popper?.destroy();
   }
 
   showPopper() {
@@ -48,13 +50,17 @@ export class VariantDropdownComponent implements OnInit {
     );
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     //Maybe can use route to activate a method to retrieve products & variants in the future
     if (this.identifier == undefined) {
       throw new Error("Category identifier is not available!");
     }
-
-    this.variants$ = this.productService.getVariants(this.identifier);
+    this.variantsSub = this.productService.getSingleProduct(this.identifier).subscribe((variant: Product[]) => {
+      this.variants = variant;
+    });
   }
 
+  ngOnDestroy(){
+    this.variantsSub?.unsubscribe();
+  }
 }

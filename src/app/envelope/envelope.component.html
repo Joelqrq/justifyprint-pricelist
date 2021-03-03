@@ -1,1 +1,21 @@
-<p>envelope works!</p>
+<div class="relative pt-12 px-6 pb-6 flex flex-col items-center">
+    <h1 class="my-3 text-3xl lg:text-4xl font-bold text-center">Full Bleed Envelope Price List</h1>
+    <hr class="w-5/6 2xl:w-3/4 border border-blue-300 self-center">
+    <section class="mb-3 container flex flex-col justify-center items-center">
+        <img [src]="imageUrl" class="mt-6 w-full max-w-md lg:max-w-4xl relative" alt="printSize"/>
+    </section>
+    <section class="container relative flex flex-col items-center">
+        <jp-table [identifier]="envelopeIdentifier"></jp-table>
+    </section>
+    <h1 class="my-3 text-3xl lg:text-4xl font-bold text-center">Envelope Ready Made Price List</h1>
+    <hr class="w-5/6 2xl:w-3/4 border border-blue-300 self-center">
+    <section class="container relative flex flex-col items-center">
+        <img [src]="readyMadeUrl" class="mt-6 w-full max-w-md lg:max-w-4xl relative" alt="readyMadeImage"/>
+        <img [src]="productSpecUrl" class="mt-6 w-full max-w-md lg:max-w-4xl relative" alt="productSpecImage"/>
+        <jp-variant-dropdown [identifier]="readyMadeIdentifier"></jp-variant-dropdown>
+        <jp-table [identifier]="readyMadeIdentifier"></jp-table>
+    </section>
+    <section class="container relative flex flex-row justify-center">
+        <img [src]="mockImageUrl" class="mt-6 w-full max-w-md lg:max-w-4xl relative" alt="mockImage"/>
+    </section>
+</div>

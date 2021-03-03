@@ -6,9 +6,11 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 })
 export class AssetService {
 
+  private readonly endpoint: string = "https://joelqrq.github.io/justifyprint-pricelist";
+
   constructor(private sanitize: DomSanitizer) { }
 
   getFile(url: string): SafeUrl {
-     return this.sanitize.bypassSecurityTrustUrl("https://joelqrq.github.io/justifyprint-pricelist" + url);
+     return this.sanitize.bypassSecurityTrustUrl(this.endpoint + url);
   }
 }

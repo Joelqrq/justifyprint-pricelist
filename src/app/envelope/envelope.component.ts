@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { SafeUrl } from '@angular/platform-browser';
+import { AssetService } from '../asset.service';
 
 @Component({
   selector: 'jp-envelope',
@@ -8,9 +10,21 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 })
 export class EnvelopeComponent implements OnInit {
 
-  constructor() { }
+  public readonly imageUrl: SafeUrl;
+  public readonly mockImageUrl: SafeUrl;
+  public readonly readyMadeUrl: SafeUrl;
+  public readonly productSpecUrl: SafeUrl;
+
+  public readonly envelopeIdentifier: string = "envelope";
+  public readonly readyMadeIdentifier: string = "envelope-ready-made";
+
+  constructor(private readonly assetService: AssetService) {
+    this.imageUrl = this.assetService.getFile("/envelope-tables/envelope-image-full-bleed.jpg");
+    this.mockImageUrl = this.assetService.getFile("/envelope-tables/envelope-image-mock.jpg");
+    this.readyMadeUrl = this.assetService.getFile("/envelope-tables/envelope-image-standard-envelope.jpg");
+    this.productSpecUrl = this.assetService.getFile("/envelope-tables/envelope-image-product-specification.jpg");
+  }
 
   ngOnInit(): void {
   }
-
 }

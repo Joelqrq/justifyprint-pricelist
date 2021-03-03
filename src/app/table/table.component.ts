@@ -22,6 +22,6 @@ export class TableComponent implements OnInit {
     {
       throw new Error("Table identifier is not available!");
     }
-    this.variants$ = this.productService.getVariants(this.identifier);
+    this.variants$ = this.productService.getSingleProduct(this.identifier);
   }
 }

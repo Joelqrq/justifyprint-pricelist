@@ -1,7 +1,4 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Product } from '../product';
-import { ProductService } from '../product.service';
 
 @Component({
   selector: 'jp-business-card',
@@ -11,11 +8,9 @@ import { ProductService } from '../product.service';
 })
 export class BusinessCardComponent implements OnInit {
 
-  readonly productIdentifier: string = "business-card";
-  public readonly variants$: Observable<Product[]>;
+  public readonly productIdentifier: string = "business-card";
 
-  constructor(private productService: ProductService) {
-    this.variants$ = this.productService.getVariants(this.productIdentifier);
+  constructor() {
   }
 
   ngOnInit(): void { }

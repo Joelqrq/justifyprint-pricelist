@@ -1,7 +1,7 @@
 <div *ngIf="variants$" class="my-3 flex flex-col items-center">
     <div *ngFor="let variant of variants$ | async; last as isLast" [ngClass]="isLast ? 'mb-0' : 'mb-6'" class="relative w-full">
-        <div class="relative inline-flex flex-row items-baseline">
-            <h1 [id]="variant.name" class="pr-2 pt-6 pb-2 uppercase text-lg text-left select-none">{{variant.name}}</h1>
+        <div class="pt-6 pb-2 relative inline-flex flex-col lg:flex-row items-baseline">
+            <h1 [id]="variant.name" class="mr-2 uppercase text-lg text-left select-none">{{variant.name}}</h1>
             <span class="text-xs normal-case select-none">(Price displayed are in SGD.)</span>
         </div>
         <div class="relative w-full h-96 overflow-auto shadow-md">
