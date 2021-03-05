@@ -40,8 +40,6 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "/pricelist/",
-              "deployUrl": "/pricelist/",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -135,7 +133,8 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "noBuild": true
+            "noBuild": true,
+            "cname": "www.justifyprint.com"
           }
         }
       }

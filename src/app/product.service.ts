@@ -80,19 +80,20 @@ export class ProductService {
     {
       identifier: "folder",
       urls: [
+        "/folder-tables/JCF1&2.csv",
         "/folder-tables/JCF3.csv",
         "/folder-tables/JCF4.csv",
         "/folder-tables/JCF5.csv",
         "/folder-tables/JCF6.csv",
-        "/folder-tables/JCF7.csv",
-        "/folder-tables/JCF10&2.csv"
+        "/folder-tables/JCF7.csv"
       ]
     },
     {
       identifier: "handfan",
       urls: [
-        "/handfan-tables/PFM-PFL-001.csv",
-        "/handfan-tables/PFS-001-2-3.csv"
+        "/handfan-tables/PFM-001.csv",
+        "/handfan-tables/PFL-001.csv",
+        "/handfan-tables/PFS-001&2&3.csv"
       ]
     }
   ];
