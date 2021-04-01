@@ -7,6 +7,7 @@ import { EnvelopeComponent } from './envelope/envelope.component';
 import { FlyerBrochureComponent } from './flyer-brochure/flyer-brochure.component';
 import { FolderComponent } from './folder/folder.component';
 import { HandfanComponent } from './handfan/handfan.component';
+import { MagnetComponent } from './magnet/magnet.component';
 
 const routes: Routes = [
   { path: 'businesscard', component: BusinessCardComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'handfan', component: HandfanComponent },
   { path: 'button-badge', component: ButtonBadgeComponent },
   { path: 'folder', component: FolderComponent },
+  { path: 'magnet', component: MagnetComponent },
   { path: '', component: BusinessCardComponent },
   { path: '**', redirectTo: '' }
 ];

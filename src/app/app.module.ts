@@ -15,6 +15,7 @@ import { FlyerBrochureComponent } from './flyer-brochure/flyer-brochure.componen
 import { HandfanComponent } from './handfan/handfan.component';
 import { FolderComponent } from './folder/folder.component';
 import { ButtonBadgeComponent } from './button-badge/button-badge.component';
+import { MagnetComponent } from './magnet/magnet.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ButtonBadgeComponent } from './button-badge/button-badge.component';
     BookmarkComponent,
     HandfanComponent,
     FolderComponent,
-    ButtonBadgeComponent
+    ButtonBadgeComponent,
+    MagnetComponent
   ],
   imports: [
     BrowserModule,

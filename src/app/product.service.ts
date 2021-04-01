@@ -95,6 +95,17 @@ export class ProductService {
         "/handfan-tables/PFL-001.csv",
         "/handfan-tables/PFS-001&2&3.csv"
       ]
+    },
+    {
+      identifier: "magnet",
+      urls: [
+        "/magnet-tables/50mm-diameter.csv",
+        "/magnet-tables/75mm-diameter.csv",
+        "/magnet-tables/100mm-diameter.csv",
+        "/magnet-tables/a5-size-148mmx210mm.csv",
+        "/magnet-tables/a6-size-105mmx148mm.csv",
+        "/magnet-tables/a7-size-74mmx105mm.csv"
+      ]
     }
   ];
 
