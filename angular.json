@@ -133,7 +133,6 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "noBuild": true,
             "cname": "www.justifyprint.com"
           }
         }
