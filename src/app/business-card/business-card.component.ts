@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'jp-business-card',
@@ -10,7 +11,8 @@ export class BusinessCardComponent implements OnInit {
 
   public readonly productIdentifier: string = "business-card";
 
-  constructor() {
+  constructor(private readonly titleService: Title) {
+    this.titleService.setTitle('Justify Print | Business Card');
   }
 
   ngOnInit(): void { }

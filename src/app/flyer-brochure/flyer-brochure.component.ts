@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { SafeUrl } from '@angular/platform-browser';
+import { SafeUrl, Title } from '@angular/platform-browser';
 import { AssetService } from '../asset.service';
 import { ProductService } from '../product.service';
 
@@ -17,8 +17,9 @@ export class FlyerBrochureComponent implements OnInit {
 
   public readonly details$ = this.productService.getDetailsFiles("flyer-brochure");
   
-  constructor(private readonly productService: ProductService, private readonly assetService: AssetService) {
+  constructor(private readonly productService: ProductService, private readonly assetService: AssetService, private readonly titleService: Title) {
     this.imageUrl = this.assetService.getFile("/flyer-brochure-tables/flyer-brochure-image-loose-sheet-folding.jpg");
+    this.titleService.setTitle('Justify Print | Flyer Brochure');
   }
 
   ngOnInit(): void { }

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { SafeUrl } from '@angular/platform-browser';
+import { SafeUrl, Title } from '@angular/platform-browser';
 import { AssetService } from '../asset.service';
 
 @Component({
@@ -18,11 +18,12 @@ export class EnvelopeComponent implements OnInit {
   public readonly envelopeIdentifier: string = "envelope";
   public readonly readyMadeIdentifier: string = "envelope-ready-made";
 
-  constructor(private readonly assetService: AssetService) {
+  constructor(private readonly assetService: AssetService, private readonly titleService: Title) {
     this.imageUrl = this.assetService.getFile("/envelope-tables/envelope-image-full-bleed.jpg");
     this.mockImageUrl = this.assetService.getFile("/envelope-tables/envelope-image-mock.jpg");
     this.readyMadeUrl = this.assetService.getFile("/envelope-tables/envelope-image-standard-envelope.jpg");
     this.productSpecUrl = this.assetService.getFile("/envelope-tables/envelope-image-product-specification.jpg");
+    this.titleService.setTitle('Justify Print | Envelope')
   }
 
   ngOnInit(): void {
