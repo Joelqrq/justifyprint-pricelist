@@ -6,7 +6,7 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 })
 export class AssetService {
 
-  private readonly endpoint: string = "https://joelqrq.github.io/justifyprint-pricelist";
+  private readonly endpoint: string = "https://joelqrq.github.io/justifyprint-pricelist-warehouse";
 
   constructor(private sanitize: DomSanitizer) { }
 

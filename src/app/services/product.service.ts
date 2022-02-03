@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Product } from './product';
+import { FileUrl, VariantUrl } from '@interfaces/file-url';
+import { Product } from '@interfaces/product';
 import { HttpClient } from '@angular/common/http';
 import {  forkJoin, Observable } from 'rxjs';
 import { concatMap, map, tap } from 'rxjs/operators';
-import { Details } from './details';
-import { FileUrl, VariantUrl } from './file-url';
+import { Details } from '../interfaces/details';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  private readonly endpoint: string = "https://joelqrq.github.io/justifyprint-pricelist";
+  private readonly endpoint: string = "https://joelqrq.github.io/justifyprint-pricelist-warehouse";
   private readonly singleProductUrls: FileUrl[] = [
     {
       identifier: "business-card",

@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { createPopper, Instance, VirtualElement } from '@popperjs/core';
 import { Observable, Subscription } from 'rxjs';
-import { Product } from '../product';
-import { ProductService } from '../product.service';
+import { Product } from 'interfaces/product';
+import { ProductService } from '../services/product.service';
 import { ActivatedRoute, UrlSegment } from '@angular/router';
 import { take } from 'rxjs/operators';
 

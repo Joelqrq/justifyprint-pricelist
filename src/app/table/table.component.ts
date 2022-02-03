@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product } from '../product';
-import { ProductService } from '../product.service';
+import { Product } from 'interfaces/product';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'jp-table',

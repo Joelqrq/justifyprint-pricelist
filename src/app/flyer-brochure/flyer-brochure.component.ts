@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { SafeUrl, Title } from '@angular/platform-browser';
-import { AssetService } from '../asset.service';
-import { ProductService } from '../product.service';
+import { AssetService } from '@services/asset.service';
+import { ProductService } from '../services/product.service';
 
 @Component({
   selector: 'jp-flyer-brochure',

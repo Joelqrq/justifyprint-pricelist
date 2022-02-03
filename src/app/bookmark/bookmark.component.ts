@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SafeUrl, Title } from '@angular/platform-browser';
-import { AssetService } from '../asset.service';
+import { AssetService } from '@services/asset.service';
 
 @Component({
   selector: 'jp-bookmark',
